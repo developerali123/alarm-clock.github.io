@@ -6,54 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>alarm clock</title>
 </head>
-<style>
-    body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .container{
-        display: flex;
-        flex-direction: column;
-        border:2px solid black;
-        padding:100px;
-        border-radius: 50%;
-    }
-    h1{
-        font-size: 50px;
-        text-align: center;
-        text-decoration: underline dotted red;
-    }
-    #clock,#local{
-        font-size: 30px;
-        text-align: center;
-        margin-bottom: 5px;
-        padding: 10px;
-        border: 2px solid black;
-        margin-top: 5px;
-    }
-    #clock{
-        border-radius: 50px 0 50px 0;
-    }
-    #local{
-        border-radius: 0 50px 0 50px;
-    }
-    input{
-        font-size: 20px;
-    }
-    button{
-        font-size: 20px;
-        margin-top: 5px;
-        border-radius: 25%;
-        padding: 5px;
-    }
-    #setbtn{
-        background: rgb(4, 247, 4);
-    }
-    #clearbtn{
-        background: red;
-    }
-</style>
+<link rel="stylesheet" href="style.css">
 <body>
     <div class="container">
         <h1>alarm clock</h1>
@@ -65,65 +18,6 @@
             <button id="clearbtn">clear alarm</button>
         </div>
     </div>
-    <script>
-        var clock=document.getElementById("clock");
-        var setbtn=document.getElementById("setbtn");
-        var clearbtn=document.getElementById("clearbtn");
-        var audio=document.createElement("audio");
-        var local=document.getElementById("local");
-        var alarmTime;
-        audio.src="Alarm-clock-bell-ringing-sound-effect.mp3";
-        audio.loop=true;
-        function showdate(){
-            var date=new Date();
-            local.innerHTML=date.toDateString();
-        var hours=date.getHours();
-        var minutes=date.getMinutes();
-        var seconds=date.getSeconds();
-        var session="AM";
-        if(hours==0){
-            hours=12;
-        }
-        if(hours>=12){
-            hours=hours-12;
-            session="PM";
-        }
-        if(hours<10){
-            hours="0"+hours;
-        }
-        if(minutes<10){
-            minutes="0"+minutes;
-        }
-        if(seconds<10){
-            seconds="0"+seconds;
-        }
-        clock.innerHTML=hours+" : "+minutes+" : "+seconds+" "+session;
-    }
-    function setAlarmTime(value) {
-    alarmTime = value;
-    }
-    setInterval(showdate,1000);
-    setbtn.addEventListener("click",function(){
-        if(alarmTime) {
-        const current = new Date();
-        const timeToAlarm = new Date(alarmTime);
-
-        if (timeToAlarm > current) {
-            const timeout = timeToAlarm.getTime() - current.getTime();
-            alarmTimeout = setTimeout(() => audio.play(), timeout);
-            alert('Alarm set');
-        }
-    }
-    })
-    clearbtn.addEventListener("click",function(){
-        audio.pause();
-    if (alarmTimeout) {
-        clearTimeout(alarmTimeout);
-        alert('Alarm cleared');
-
-    }
-    })
-    showdate();
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
