@@ -7,8 +7,9 @@ body{
     display: flex;
     flex-direction: column;
     border:2px solid black;
-    padding:100px;
-    border-radius: 50%;
+    padding:50px;
+    /* border-radius: 50%; */
+    background-color: aqua;
 }
 h1{
     font-size: 50px;
@@ -25,12 +26,16 @@ h1{
 }
 #clock{
     border-radius: 50px 0 50px 0;
+    background: rgb(0, 255, 213);
 }
 #local{
     border-radius: 0 50px 0 50px;
+    background: rgb(0, 204, 255);
 }
 input{
     font-size: 20px;
+    background: rgb(255, 72, 0);
+    padding: 10px;
 }
 button{
     font-size: 20px;
